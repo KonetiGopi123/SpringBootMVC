@@ -1,0 +1,18 @@
+server:
+    port: 8045
+spring:
+    application:
+        name: SpringbootMVCProjRestNew
+    datasource:
+        driverClassName: oracle.jdbc.OracleDriver
+        password: welcome
+        url: jdbc:oracle:thin:@localhost:1521:xe
+        username: gopi
+    jpa:
+        database-platform: org.hibernate.dialect.OracleDialect
+        hibernate:
+            ddl-auto: update
+        properties:
+            hibernate:
+                format_sql: true
+        show-sql: true

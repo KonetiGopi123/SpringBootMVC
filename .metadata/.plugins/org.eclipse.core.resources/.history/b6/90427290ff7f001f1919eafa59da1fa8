@@ -1,0 +1,116 @@
+package com.ratan.springbootRestnew.controller;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+import com.ratan.springbootRestnew.models.Employee;
+import com.ratan.springbootRestnew.service.EmployeeService;
+
+@RestController
+@RequestMapping("/api/v1")
+public class EmployeeController 
+{
+	@Autowired
+	EmployeeService employeeService;
+	
+	@PostMapping("/saveemployee")
+	public Employee saveEmployee(@RequestBody Employee employee)
+	{
+		Employee emp= employeeService.saveEmployee(employee);
+		return emp;
+		
+		
+		
+	}
+	@PostMapping("/saveall")
+	public ResponseEntity <List<Employee>>saveAll(@RequestBody List<Employee> employee) {
+		
+		List<Employee> saveAll= employeeService.saveAll(employee);
+		
+		return  ResponseEntity.status(HttpStatus.CREATED)
+				.header("employeeStatus", "employee saved successfully")
+				 .body(saveAll);
+		
+	}
+	@GetMapping("/getall")
+	public ResponseEntity<List<Employee>>getAllEmployees()
+	{
+		List<Employee>emps=employeeService.getAllEmployees();
+		
+		return ResponseEntity.status(HttpStatus.OK)
+				             .header("status", "data reading is successfull")
+				             .body(emps);
+	}
+	@GetMapping("/getById/{id}")
+	public ResponseEntity<?> getById(@PathVariable Long id)
+	{
+		Optional<Employee> optionalEmp=employeeService.getById(id);
+		if(optionalEmp.isPresent())
+		{
+			return ResponseEntity.status(HttpStatus.OK)
+					.body(optionalEmp);
+		}
+		else {
+			return ResponseEntity.status(HttpStatus.NOT_FOUND)
+					             .body("Emp is not found with id.."+id);
+					             
+		}
+	}
+	@GetMapping("/getByEmail/{email}")
+	public ResponseEntity<?> getByEmail(@PathVariable String email)
+	{
+		Optional<Employee>optionalEmp=employeeService.findByEmail(email);
+		if(optionalEmp.isPresent())
+		{
+			return ResponseEntity.status(HttpStatus.OK)
+					             .body(optionalEmp);
+		}
+		else {
+			return ResponseEntity.status(HttpStatus.NOT_FOUND)
+					             .body("emp is not found with email"+email);
+		}
+	}
+	@DeleteMapping("/deletebyid/{id}")
+	public ResponseEntity<?> deleteById(@PathVariable Long id)
+	{
+		 boolean status=employeeService.deleteById(id);
+		 if(status)
+		 {
+			 return ResponseEntity.noContent().build();	 
+		 }
+		 else
+		 {
+			 return ResponseEntity.status(HttpStatus.NOT_FOUND)
+		             .header("status", "data is not found")
+		             .body("data not found with id"+id);
+		 }
+	}
+	//@DeleteMapping("/deletebyemail/{Email}")
+	//public ResponseEntity<?> deleteByEmail(@PathVariable String email)
+	//{
+		//boolean status=employeeService.deleteByEmail(email);
+		//if(status)
+		//{
+			//return ResponseEntity.noContent().build();
+		//}
+		//else
+		//{
+			//return ResponseEntity.status(HttpStatus.NOT_FOUND)
+					            // .header("status", "data is not found")
+					            // .body("data is not found with email"+email);
+		//}
+	//}
+
+	
+}
+

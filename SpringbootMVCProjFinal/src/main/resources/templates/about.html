@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>About Us</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <header class="bg-primary text-white text-center py-4">
+        <h1>About Us</h1>
+        <nav class="nav justify-content-center">
+            <a class="nav-link text-white" href="/" th:href="@{/}">Home</a>
+            <a class="nav-link text-white" href="/contact" th:href="@{/contact}">Contact Us</a>
+            <a class="nav-link text-white" href="/products" th:href="@{/products}">Products</a>
+        </nav>
+    </header>
+
+    <main class="container mt-5" th:fragment="content">
+        <section>
+            <h2>Our Mission</h2>
+            <p>
+                Our mission is to provide high-quality products and services that exceed our customers' expectations.
+            </p>
+        </section>
+
+        <section class="mt-4">
+            <h2>Our Story</h2>
+            <p>
+                Founded in 2023, we are dedicated to delivering exceptional value through innovative solutions and unparalleled service.
+            </p>
+        </section>
+
+        <section class="mt-4">
+            <h2>Our Team</h2>
+            <p>
+                Our team consists of experienced professionals who are passionate about their work and committed to ensuring customer satisfaction.
+            </p>
+        </section>
+
+        <section class="mt-4">
+            <h2>Contact Us</h2>
+            <p>
+                If you have any questions or would like to know more about us, please <a th:href="@{/contact}">get in touch</a>.
+            </p>
+        </section>
+    </main>
+
+    <footer class="bg-light text-center py-3">
+        <p>&copy; 2024 Your Company Name. All rights reserved.</p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Contact Us - Sathya IT Solutions</title>
+</head>
+<body>
+
+<div class="container mt-5" th:fragment="content">
+    <h2>Contact Us</h2>
+    <p>If you have any questions or need further information about our services, feel free to contact us. We are always here to assist you!</p>
+
+    <form>
+        <div class="form-group">
+            <label for="name">Your Name</label>
+            <input type="text" class="form-control" id="name" placeholder="Enter your name" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Your Email</label>
+            <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+        </div>
+        <div class="form-group">
+            <label for="message">Your Message</label>
+            <textarea class="form-control" id="message" rows="5" placeholder="Type your message here" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Send Message</button>
+    </form>
+
+    <h3 class="mt-4">Contact Information</h3>
+    <p><strong>Email:</strong> info@Sathyaitsolutions.com</p>
+    <p><strong>Phone:</strong> +91 8976543298</p>
+    <p><strong>Address:</strong> No. 123, IT Park Road, Tech City, India</p>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.6/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>

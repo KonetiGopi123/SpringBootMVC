@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Book List</title>
+</head>
+<body>
+
+<div class="container mt-5">
+    <h2>Book List</h2>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Book ID</th>
+                <th scope="col">Book Name</th>
+                <th scope="col">Price</th>
+                <th scope="col">Discount</th>
+                <th scope="col">Brand</th>
+                <th scope="col">Description</th>
+                <th scope="col">Category</th>
+                <th scope="col">Published At</th>
+                <th scope="col">Authorized By</th>
+                <th scope="col">Actions</th>
+                <th scope="col">Actions by</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="book : ${books}">
+                <td th:text="${book.bookId}"></td>
+                <td th:text="${book.bookName}"></td>
+                <td th:text="${book.bookPrice}"></td>
+                <td th:text="${book.bookDiscount}"></td>
+                <td th:text="${book.bookBrand}"></td>
+                <td th:text="${book.bookDescription}"></td>
+                <td th:text="${book.bookCategory}"></td>
+                <td th:text="${book.publishedAt}"></td>
+                <td th:text="${book.authorizedBy}"></td>
+                
+                    <td>
+                   <form th:action="@{/delete/{id}(id=${book.bookId})}" method="post" style="display:inline;">
+                            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                        </form>
+                    </td>
+                     <td>
+                        <!-- Edit Button (optional) -->
+                        <a th:href="@{/editBook/{id}(id=${book.bookId})}" class="btn btn-primary btn-sm">Edit</a>
+                    </td>
+
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.6/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
