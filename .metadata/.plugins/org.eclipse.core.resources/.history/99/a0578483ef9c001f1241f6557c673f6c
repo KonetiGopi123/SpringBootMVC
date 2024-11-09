@@ -1,0 +1,19 @@
+package com.ratan.react.Model;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class ProductModel 
+{
+	private String Name;
+	private double Quantity;
+	private double Price;
+	private String Category;
+	private String Image;
+	
+
+}
