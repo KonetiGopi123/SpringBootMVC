@@ -17,7 +17,7 @@ public class EmployeController
 	@Autowired
 	EmployeService employeService;
 	
-	@PostMapping("/savEmploye")
+	@PostMapping("/saveEmploye")
 	public EmployeEntity saveEmploye(@RequestBody EmployeModel employeModel)
 	{
 		return employeService.saveEmp(employeModel);

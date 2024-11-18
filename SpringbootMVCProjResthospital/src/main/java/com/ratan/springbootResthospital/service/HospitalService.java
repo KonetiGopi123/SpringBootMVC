@@ -147,6 +147,13 @@ public Optional<Hospital> updatedHospital(Long id,Map<String,Object>updates)
 		return Optional.empty();
 	}
 }
+
+
+
+public Optional<Hospital> partialUpdate(Long id, Map<String, Object> updates) {
+	// TODO Auto-generated method stub
+	return null;
+}
 }
 	
 
